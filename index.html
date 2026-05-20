@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>IntegriSpace</title>
+
+    <!-- PWA -->
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- LEAFLET -->
+
+    <link rel="stylesheet"
+        href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+</head>
+
+<body>
+
+
+    <!-- LOGO -->
+
+    <div class="logo-ucv">
+
+        <img
+            src="logo_ucv.png"
+            alt="UCV"
+        >
+
+    </div>
+
+
+
+    <!-- BOTON ACCESIBILIDAD -->
+
+    <div class="fab-accesibilidad">
+
+        <button onclick="mostrarMenu()">
+
+            ♿
+
+        </button>
+
+
+        <div
+            class="menu-accesibilidad"
+            id="menuAccesibilidad"
+        >
+
+            <button onclick="altoContraste()">
+
+                Alto Contraste
+
+            </button>
+
+            <button onclick="letrasGrandes()">
+
+                Letras Grandes
+
+            </button>
+
+            <button onclick="botonesGrandes()">
+
+                Botones Grandes
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- CONTENEDOR PRINCIPAL -->
+
+    <div class="contenedor-principal">
+
+
+        <!-- PANEL IZQUIERDO -->
+
+        <div class="contenedor">
+
+
+            <!-- TITULO -->
+
+            <div class="titulo">
+
+                <h1>
+                    IntegriSpace
+                </h1>
+
+                <p>
+                    Evaluación inteligente
+                    de rutas accesibles
+                </p>
+
+            </div>
+
+
+
+            <!-- CARD -->
+
+            <div class="card">
+
+
+                <h3>
+                    📍 Seleccione varios puntos
+                </h3>
+
+                <p class="texto-ayuda">
+
+                    Haga clic sobre el mapa
+                    para construir la ruta.
+
+                </p>
+
+
+
+                <!-- MAPA -->
+
+                <div class="contenedor-mapa">
+
+                    <div id="map"></div>
+
+                    <button
+                        class="btn-limpiar-mapa"
+                        onclick="limpiarRuta()"
+                    >
+
+                        🗑️
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- DISTANCIA -->
+
+                <label>
+                    Distancia total (m)
+                </label>
+
+                <input
+                    type="number"
+                    id="distancia"
+                    readonly
+                >
+
+
+
+                <!-- TERRENO -->
+
+                <label>
+                    Tipo de terreno
+                </label>
+
+                <select id="terreno">
+
+                    <option value="0">
+
+                        🟢 Plano
+
+                    </option>
+
+                    <option value="5">
+
+                        🟡 Inclinación leve
+
+                    </option>
+
+                    <option value="10">
+
+                        🟠 Inclinación moderada
+
+                    </option>
+
+                    <option value="15">
+
+                        🔴 Subida pronunciada
+
+                    </option>
+
+                    <option value="-5">
+
+                        🔵 Bajada
+
+                    </option>
+
+                </select>
+
+
+
+                <!-- PESO -->
+
+                <label>
+                    Peso del usuario (kg)
+                </label>
+
+                <input
+                    type="number"
+                    id="peso"
+                    placeholder="Ejemplo: 70"
+                >
+
+
+
+                <!-- VELOCIDAD -->
+
+                <div class="info-velocidad">
+
+                    🚶 La velocidad será ajustada
+                    automáticamente según el
+                    terreno y tipo de usuario.
+
+                </div>
+
+
+
+                <!-- USUARIO -->
+
+                <label>
+                    Tipo de usuario
+                </label>
+
+                <select id="usuario">
+
+                    <option value="1">
+
+                        👤 Usuario general
+
+                    </option>
+
+                    <option value="2">
+
+                        👴 Adulto mayor
+
+                    </option>
+
+                    <option value="3">
+
+                        ♿ Movilidad reducida
+
+                    </option>
+
+                </select>
+
+
+
+                <!-- BOTONES -->
+
+                <div class="botones">
+
+                    <button
+                        class="btn-calcular"
+                        onclick="calcular()"
+                    >
+
+                        Calcular
+
+                    </button>
+
+
+                    <button
+                        class="btn-limpiar"
+                        onclick="limpiar()"
+                    >
+
+                        Reiniciar Todo
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- INSTALAR APP -->
+
+                <div class="descargas">
+
+                    <button
+                        class="btn-descarga"
+                        id="btnInstalar"
+                        style="display: none;"
+                    >
+
+                        📱 Instalar App
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- RESULTADOS -->
+
+        <div
+            class="panel-recomendaciones"
+            id="panelRecomendaciones"
+            style="display: none;"
+        >
+
+            <h2>
+                📊 Resultados de la ruta
+            </h2>
+
+            <div id="resultado"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- LEAFLET -->
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- SCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

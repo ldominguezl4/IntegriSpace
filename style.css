@@ -1,0 +1,409 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body{
+
+    font-family: 'Poppins', sans-serif;
+
+    background: #f1f5f9;
+
+    min-height: 100vh;
+
+    padding: 20px;
+}
+
+
+
+/* LOGO */
+
+.logo-ucv{
+
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.logo-ucv img{
+
+    width: 420px;
+
+    max-width: 90%;
+}
+
+
+
+/* ACCESIBILIDAD */
+
+.fab-accesibilidad{
+
+    position: fixed;
+
+    bottom: 25px;
+
+    right: 25px;
+
+    z-index: 999;
+}
+
+
+.fab-accesibilidad > button{
+
+    width: 70px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+
+.menu-accesibilidad{
+
+    display: none;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+}
+
+
+.menu-accesibilidad button{
+
+    border: none;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    background: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+
+/* CONTENEDOR */
+
+.contenedor-principal{
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+
+.contenedor{
+
+    width: 100%;
+
+    max-width: 700px;
+}
+
+
+
+/* TITULO */
+
+.titulo{
+
+    text-align: center;
+
+    margin-bottom: 20px;
+}
+
+
+.titulo h1{
+
+    color: #1e3a8a;
+
+    font-size: 52px;
+}
+
+
+.titulo p{
+
+    color: #475569;
+
+    font-size: 18px;
+}
+
+
+
+/* CARD */
+
+.card,
+.panel-recomendaciones{
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 25px;
+
+    box-shadow:
+        0px 8px 25px rgba(0,0,0,0.08);
+}
+
+
+.panel-recomendaciones{
+
+    width: 360px;
+
+    margin-top: 135px;
+}
+
+
+
+/* MAPA */
+
+.contenedor-mapa{
+
+    position: relative;
+}
+
+
+#map{
+
+    height: 420px;
+
+    width: 100%;
+
+    border-radius: 20px;
+
+    margin-top: 10px;
+
+    margin-bottom: 20px;
+
+    border: 3px solid #93c5fd;
+}
+
+
+
+/* BOTON LIMPIAR */
+
+.btn-limpiar-mapa{
+
+    position: absolute;
+
+    top: 20px;
+
+    right: 20px;
+
+    z-index: 500;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: #ef4444;
+
+    color: white;
+
+    font-size: 22px;
+
+    cursor: pointer;
+}
+
+
+
+/* INPUTS */
+
+label{
+
+    display: block;
+
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+
+    font-weight: 600;
+}
+
+
+input,
+select{
+
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 14px;
+
+    border: 1px solid #cbd5e1;
+
+    background: #f8fafc;
+
+    font-size: 15px;
+}
+
+
+
+/* INFO */
+
+.info-velocidad{
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    background: #eff6ff;
+
+    border-left: 5px solid #2563eb;
+
+    border-radius: 12px;
+
+    color: #1e3a8a;
+}
+
+
+
+/* BOTONES */
+
+.botones{
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 25px;
+}
+
+
+.botones button{
+
+    flex: 1;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+.btn-calcular{
+
+    background: #2563eb;
+
+    color: white;
+}
+
+
+.btn-limpiar{
+
+    background: #e2e8f0;
+}
+
+
+
+/* INSTALAR */
+
+.descargas{
+
+    margin-top: 20px;
+}
+
+
+.btn-descarga{
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.btn-descarga:hover{
+
+    background: #1e293b;
+
+    transform: scale(1.02);
+}
+
+
+
+/* RESULTADOS */
+
+#resultado{
+
+    line-height: 2;
+
+    color: #334155;
+}
+
+
+
+/* RECOMENDACIONES */
+
+.caja-recomendaciones{
+
+    margin-top: 25px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: #f8fafc;
+
+    border: 2px solid #dbeafe;
+}
+
+
+.recomendacion{
+
+    margin-top: 15px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    background: #dbeafe;
+
+    color: #1e3a8a;
+
+    border-left: 5px solid #2563eb;
+}
