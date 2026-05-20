@@ -19,6 +19,8 @@ let marcadores = [];
 
 
 
+/* MAPA */
+
 map.on('click', function(e){
 
     let nuevoPunto =
@@ -75,6 +77,8 @@ map.on('click', function(e){
 
 
 
+/* CALCULAR */
+
 function calcular(){
 
     document.getElementById(
@@ -122,25 +126,35 @@ function calcular(){
 
 
 
+    /* TIPO DE USUARIO */
+
     if(usuario == 1){
 
         factorUsuario = 1;
-        tipoUsuario = "Usuario general";
+
+        tipoUsuario =
+        "Usuario general";
     }
 
     else if(usuario == 2){
 
         factorUsuario = 1.3;
-        tipoUsuario = "Adulto mayor";
+
+        tipoUsuario =
+        "Adulto mayor";
     }
 
     else{
 
         factorUsuario = 1.6;
-        tipoUsuario = "Movilidad reducida";
+
+        tipoUsuario =
+        "Movilidad reducida";
     }
 
 
+
+    /* VELOCIDAD */
 
     if(pendiente < 0){
 
@@ -168,6 +182,8 @@ function calcular(){
     }
 
 
+
+    /* FORMULAS */
 
     let altura =
     distancia *
@@ -208,6 +224,127 @@ function calcular(){
 
 
 
+    /* RECOMENDACIONES */
+
+    let recomendaciones = [];
+
+
+
+    /* SEGUN PENDIENTE */
+
+    if(pendiente > 10){
+
+        recomendaciones.push(
+            "🔴 Ruta con alta inclinación."
+        );
+
+        recomendaciones.push(
+            "💧 Mantener hidratación constante."
+        );
+
+        recomendaciones.push(
+            "⚠️ Reducir velocidad durante el recorrido."
+        );
+    }
+
+    else if(pendiente > 0){
+
+        recomendaciones.push(
+            "🟡 Ruta moderada."
+        );
+
+        recomendaciones.push(
+            "🚶 Mantener un ritmo estable."
+        );
+    }
+
+    else if(pendiente < 0){
+
+        recomendaciones.push(
+            "🔵 Ruta en descenso."
+        );
+
+        recomendaciones.push(
+            "⚠️ Tener cuidado al descender."
+        );
+
+        recomendaciones.push(
+            "👟 Utilizar calzado adecuado."
+        );
+    }
+
+    else{
+
+        recomendaciones.push(
+            "🟢 Ruta accesible y cómoda."
+        );
+
+        recomendaciones.push(
+            "🚶 Adecuada para desplazamiento cotidiano."
+        );
+    }
+
+
+
+    /* SEGUN USUARIO */
+
+    if(usuario == 2){
+
+        recomendaciones.push(
+            "👴 Realizar pausas cortas durante el recorrido."
+        );
+
+        recomendaciones.push(
+            "💧 Llevar agua para mantenerse hidratado."
+        );
+    }
+
+
+
+    if(usuario == 3){
+
+        recomendaciones.push(
+            "♿ Verificar rampas y superficies accesibles."
+        );
+
+        recomendaciones.push(
+            "🦽 Mantener desplazamiento moderado."
+        );
+    }
+
+
+
+    if(usuario == 1){
+
+        recomendaciones.push(
+            "✅ Mantener ritmo de caminata seguro."
+        );
+    }
+
+
+
+    /* CREAR HTML */
+
+    let recomendacionesHTML = "";
+
+
+    recomendaciones.forEach(function(rec){
+
+        recomendacionesHTML +=
+
+        `
+        <div class="recomendacion">
+
+            ${rec}
+
+        </div>
+        `;
+    });
+
+
+
+    /* MOSTRAR RESULTADOS */
+
     document.getElementById(
         "resultado"
     ).innerHTML =
@@ -240,16 +377,29 @@ ${energiaTotal.toFixed(2)} J
 
 🔥 Calorías aproximadas:
 ${calorias.toFixed(2)}
+
+<div class="caja-recomendaciones">
+
+    <h3>
+        💡 Recomendaciones
+    </h3>
+
+    ${recomendacionesHTML}
+
+</div>
+
 `;
+
 }
 
 
 
-/* LIMPIAR */
+/* LIMPIAR RUTA */
 
 function limpiarRuta(){
 
     puntos = [];
+
     distanciaTotal = 0;
 
     document.getElementById(
@@ -273,6 +423,8 @@ function limpiarRuta(){
 
 
 
+/* REINICIAR */
+
 function limpiar(){
 
     location.reload();
@@ -280,7 +432,7 @@ function limpiar(){
 
 
 
-/* ACCESIBILIDAD */
+/* MENU ACCESIBILIDAD */
 
 function mostrarMenu(){
 
@@ -301,6 +453,8 @@ function mostrarMenu(){
 }
 
 
+
+/* ACCESIBILIDAD */
 
 function altoContraste(){
 
@@ -329,7 +483,7 @@ function botonesGrandes(){
 
 
 
-/* PWA */
+/* SERVICE WORKER */
 
 if("serviceWorker" in navigator){
 
@@ -349,7 +503,7 @@ if("serviceWorker" in navigator){
 
 
 
-/* INSTALAR */
+/* INSTALAR APP */
 
 let deferredPrompt;
 
