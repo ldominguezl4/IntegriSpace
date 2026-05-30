@@ -19,7 +19,7 @@ let marcadores = [];
 
 
 
-/* CAMBIO MODO DISTANCIA */
+/* MODO DISTANCIA */
 
 function cambiarModoDistancia(){
 
@@ -73,10 +73,12 @@ map.on('click', function(e){
     puntos.push(nuevoPunto);
 
 
+
     let marcador =
     L.marker(nuevoPunto).addTo(map);
 
     marcadores.push(marcador);
+
 
 
     if(puntos.length > 1){
@@ -97,10 +99,12 @@ map.on('click', function(e){
     }
 
 
+
     if(linea){
 
         map.removeLayer(linea);
     }
+
 
 
     linea = L.polyline(
@@ -110,6 +114,7 @@ map.on('click', function(e){
             weight: 5
         }
     ).addTo(map);
+
 
 
     document.getElementById(
@@ -130,9 +135,15 @@ function calcular(){
     ).style.display = "block";
 
 
+
     let masa =
+
     parseFloat(
-        document.getElementById("peso").value
+
+        document.getElementById(
+            "peso"
+        ).value
+
     );
 
 
@@ -180,13 +191,19 @@ function calcular(){
 
 
     let pendiente =
+
     parseFloat(
-        document.getElementById("terreno").value
+
+        document.getElementById(
+            "terreno"
+        ).value
+
     );
 
 
 
     let usuario =
+
     document.getElementById(
         "usuario"
     ).value;
@@ -269,21 +286,27 @@ function calcular(){
 
 
     let altura =
+
     distancia *
     (pendiente / 100);
 
 
+
     let energiaPotencial =
+
     masa *
     gravedad *
     altura;
 
 
+
     let energiaCinetica =
+
     0.5 *
     masa *
     velocidad *
     velocidad;
+
 
 
     let energiaTotal =
@@ -296,13 +319,17 @@ function calcular(){
         )
 
         * factorUsuario
+
     );
+
 
 
     let calorias =
 
     Math.abs(
+
         energiaTotal / 4.184
+
     );
 
 
@@ -502,9 +529,7 @@ function calcular(){
 
         `
         <div class="recomendacion">
-
             ${rec}
-
         </div>
         `;
     });
@@ -547,9 +572,7 @@ ${calorias.toFixed(2)}
 <div class="caja-recomendaciones">
 
     <h3>
-
         💡 Recomendaciones
-
     </h3>
 
     ${recomendacionesHTML}
@@ -559,9 +582,7 @@ ${calorias.toFixed(2)}
 <div class="panel-energia">
 
     <h3>
-
         📊 Indicadores complementarios
-
     </h3>
 
     <br>
@@ -569,21 +590,17 @@ ${calorias.toFixed(2)}
     📊 Nivel de esfuerzo:
 
     <span class="${claseEsfuerzo}">
-
         ${esfuerzo}
-
     </span>
 
     <br><br>
 
     💧 Agua recomendada:
-
     ${agua}
 
     <br><br>
 
     🍎 Equivalencia calórica:
-
     ${equivalencia}
 
 </div>
@@ -637,9 +654,12 @@ function limpiar(){
 function mostrarMenu(){
 
     let menu =
+
     document.getElementById(
         "menuAccesibilidad"
     );
+
+
 
     if(menu.style.display == "flex"){
 
@@ -729,7 +749,8 @@ window.addEventListener(
         deferredPrompt = e;
 
         btnInstalar.style.display =
-            "block";
+        "block";
+
     }
 );
 

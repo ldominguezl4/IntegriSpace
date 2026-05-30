@@ -34,8 +34,6 @@
 
 <body>
 
-    <!-- LOGO -->
-
     <div class="logo-ucv">
 
         <img
@@ -45,8 +43,6 @@
     </div>
 
 
-
-    <!-- ACCESIBILIDAD -->
 
     <div class="fab-accesibilidad">
 
@@ -61,21 +57,15 @@
             id="menuAccesibilidad">
 
             <button onclick="altoContraste()">
-
                 Alto Contraste
-
             </button>
 
             <button onclick="letrasGrandes()">
-
                 Letras Grandes
-
             </button>
 
             <button onclick="botonesGrandes()">
-
                 Botones Grandes
-
             </button>
 
         </div>
@@ -84,28 +74,20 @@
 
 
 
-    <!-- CONTENEDOR PRINCIPAL -->
-
     <div class="contenedor-principal">
 
-
-        <!-- PANEL IZQUIERDO -->
 
         <div class="contenedor">
 
             <div class="titulo">
 
                 <h1>
-
                     IntegriSpace
-
                 </h1>
 
                 <p>
-
                     Prototipo de aplicación inteligente
                     para la evaluación de rutas accesibles
-
                 </p>
 
             </div>
@@ -115,9 +97,7 @@
             <div class="card">
 
                 <h3>
-
                     📍 Seleccione varios puntos
-
                 </h3>
 
                 <p class="texto-ayuda">
@@ -128,8 +108,6 @@
                 </p>
 
 
-
-                <!-- MAPA -->
 
                 <div class="contenedor-mapa">
 
@@ -147,12 +125,8 @@
 
 
 
-                <!-- MODO -->
-
                 <label>
-
                     Método de cálculo
-
                 </label>
 
                 <select
@@ -160,29 +134,21 @@
                     onchange="cambiarModoDistancia()">
 
                     <option value="mapa">
-
                         🗺️ Seleccionar ruta en mapa
-
                     </option>
 
                     <option value="manual">
-
                         ✍️ Ingresar distancia manualmente
-
                     </option>
 
                 </select>
 
 
 
-                <!-- DISTANCIA MAPA -->
-
                 <div id="distanciaMapa">
 
                     <label>
-
                         Distancia total (m)
-
                     </label>
 
                     <input
@@ -194,16 +160,12 @@
 
 
 
-                <!-- DISTANCIA MANUAL -->
-
                 <div
                     id="distanciaManualContainer"
                     style="display:none;">
 
                     <label>
-
                         Distancia manual (m)
-
                     </label>
 
                     <input
@@ -215,56 +177,38 @@
 
 
 
-                <!-- TERRENO -->
-
                 <label>
-
                     Tipo de terreno
-
                 </label>
 
                 <select id="terreno">
 
                     <option value="0">
-
                         🟢 Plano
-
                     </option>
 
                     <option value="5">
-
                         🟡 Inclinación leve
-
                     </option>
 
                     <option value="10">
-
                         🟠 Inclinación moderada
-
                     </option>
 
                     <option value="15">
-
                         🔴 Subida pronunciada
-
                     </option>
 
                     <option value="-5">
-
                         🔵 Bajada
-
                     </option>
 
                 </select>
 
 
 
-                <!-- PESO -->
-
                 <label>
-
                     Peso del usuario (kg)
-
                 </label>
 
                 <input
@@ -273,8 +217,6 @@
                     placeholder="Ejemplo: 70">
 
 
-
-                <!-- VELOCIDAD -->
 
                 <div class="info-velocidad">
 
@@ -286,39 +228,27 @@
 
 
 
-                <!-- USUARIO -->
-
                 <label>
-
                     Tipo de usuario
-
                 </label>
 
                 <select id="usuario">
 
                     <option value="1">
-
                         👤 Usuario general
-
                     </option>
 
                     <option value="2">
-
                         👴 Adulto mayor
-
                     </option>
 
                     <option value="3">
-
                         ♿ Movilidad reducida
-
                     </option>
 
                 </select>
 
 
-
-                <!-- BOTONES -->
 
                 <div class="botones">
 
@@ -342,8 +272,6 @@
 
 
 
-                <!-- INSTALAR -->
-
                 <div class="descargas">
 
                     <button
@@ -363,7 +291,7 @@
 
 
 
-        <!-- PANEL RESULTADOS -->
+        <!-- RESULTADOS -->
 
         <div
             class="panel-recomendaciones"
@@ -391,3 +319,4 @@
 </body>
 
 </html>
+
