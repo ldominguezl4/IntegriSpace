@@ -168,7 +168,7 @@ body{
 
 .panel-recomendaciones{
 
-    width: 360px;
+    width: 380px;
 
     margin-top: 135px;
 }
@@ -200,7 +200,7 @@ body{
 
 
 
-/* BOTON LIMPIAR */
+/* BOTON LIMPIAR MAPA */
 
 .btn-limpiar-mapa{
 
@@ -406,4 +406,104 @@ select{
     color: #1e3a8a;
 
     border-left: 5px solid #2563eb;
+}
+
+
+
+/* PANEL ENERGETICO */
+
+.panel-energia{
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: #ecfeff;
+
+    border-left: 6px solid #0891b2;
+}
+
+
+
+.esfuerzo-bajo{
+
+    color: #16a34a;
+
+    font-weight: bold;
+}
+
+
+
+.esfuerzo-medio{
+
+    color: #ca8a04;
+
+    font-weight: bold;
+}
+
+
+
+.esfuerzo-alto{
+
+    color: #dc2626;
+
+    font-weight: bold;
+}
+
+
+
+/* STREET VIEW */
+
+#panelStreetView{
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 2px solid #e2e8f0;
+}
+
+
+
+#panelStreetView h3{
+
+    color: #1e3a8a;
+
+    margin-bottom: 10px;
+}
+
+
+
+/* ACCESIBILIDAD EXTRA */
+
+.alto-contraste{
+
+    background: black !important;
+
+    color: white !important;
+}
+
+
+.alto-contraste .card,
+.alto-contraste .panel-recomendaciones{
+
+    background: #111 !important;
+
+    color: white !important;
+}
+
+
+.letras-grandes{
+
+    font-size: 120%;
+}
+
+
+.botones-grandes button{
+
+    padding: 20px !important;
+
+    font-size: 18px;
 }
