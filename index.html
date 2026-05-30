@@ -12,8 +12,7 @@
 
     <link
         rel="manifest"
-        href="manifest.json"
-    >
+        href="manifest.json">
 
     <link rel="stylesheet"
         href="style.css">
@@ -41,8 +40,7 @@
 
         <img
             src="logo_ucv.png"
-            alt="UCV"
-        >
+            alt="UCV">
 
     </div>
 
@@ -60,8 +58,7 @@
 
         <div
             class="menu-accesibilidad"
-            id="menuAccesibilidad"
-        >
+            id="menuAccesibilidad">
 
             <button onclick="altoContraste()">
 
@@ -87,7 +84,7 @@
 
 
 
-    <!-- CONTENEDOR -->
+    <!-- CONTENEDOR PRINCIPAL -->
 
     <div class="contenedor-principal">
 
@@ -99,12 +96,16 @@
             <div class="titulo">
 
                 <h1>
+
                     IntegriSpace
+
                 </h1>
 
                 <p>
+
                     Prototipo de aplicación inteligente
                     para la evaluación de rutas accesibles
+
                 </p>
 
             </div>
@@ -136,8 +137,7 @@
 
                     <button
                         class="btn-limpiar-mapa"
-                        onclick="limpiarRuta()"
-                    >
+                        onclick="limpiarRuta()">
 
                         🗑️
 
@@ -157,8 +157,7 @@
 
                 <select
                     id="modoDistancia"
-                    onchange="cambiarModoDistancia()"
-                >
+                    onchange="cambiarModoDistancia()">
 
                     <option value="mapa">
 
@@ -189,8 +188,7 @@
                     <input
                         type="number"
                         id="distancia"
-                        readonly
-                    >
+                        readonly>
 
                 </div>
 
@@ -200,8 +198,7 @@
 
                 <div
                     id="distanciaManualContainer"
-                    style="display:none;"
-                >
+                    style="display:none;">
 
                     <label>
 
@@ -212,8 +209,7 @@
                     <input
                         type="number"
                         id="distanciaManual"
-                        placeholder="Ejemplo: 500"
-                    >
+                        placeholder="Ejemplo: 500">
 
                 </div>
 
@@ -274,8 +270,7 @@
                 <input
                     type="number"
                     id="peso"
-                    placeholder="Ejemplo: 70"
-                >
+                    placeholder="Ejemplo: 70">
 
 
 
@@ -329,8 +324,7 @@
 
                     <button
                         class="btn-calcular"
-                        onclick="calcular()"
-                    >
+                        onclick="calcular()">
 
                         Calcular
 
@@ -338,8 +332,7 @@
 
                     <button
                         class="btn-limpiar"
-                        onclick="limpiar()"
-                    >
+                        onclick="limpiar()">
 
                         Reiniciar Todo
 
@@ -349,15 +342,14 @@
 
 
 
-                <!-- INSTALAR APP -->
+                <!-- INSTALAR -->
 
                 <div class="descargas">
 
                     <button
                         class="btn-descarga"
                         id="btnInstalar"
-                        style="display:none;"
-                    >
+                        style="display:none;">
 
                         📱 Instalar App
 
@@ -376,8 +368,7 @@
         <div
             class="panel-recomendaciones"
             id="panelRecomendaciones"
-            style="display:none;"
-        >
+            style="display:none;">
 
             <h2>
 
@@ -386,34 +377,6 @@
             </h2>
 
             <div id="resultado"></div>
-
-
-
-            <!-- STREET VIEW -->
-
-            <div
-                id="panelStreetView"
-                style="display:none;"
-            >
-
-                <h3>
-
-                    👁 Vista del entorno
-
-                </h3>
-
-                <iframe
-                    id="streetFrame"
-                    width="100%"
-                    height="300"
-                    style="
-                        border:none;
-                        border-radius:15px;
-                        margin-top:10px;
-                    "
-                ></iframe>
-
-            </div>
 
         </div>
 

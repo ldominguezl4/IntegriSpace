@@ -16,7 +16,6 @@ let puntos = [];
 let linea = null;
 let distanciaTotal = 0;
 let marcadores = [];
-let ultimoPunto = null;
 
 
 
@@ -72,8 +71,6 @@ map.on('click', function(e){
     [e.latlng.lat, e.latlng.lng];
 
     puntos.push(nuevoPunto);
-
-    ultimoPunto = nuevoPunto;
 
 
     let marcador =
@@ -187,8 +184,13 @@ function calcular(){
         document.getElementById("terreno").value
     );
 
+
+
     let usuario =
-    document.getElementById("usuario").value;
+    document.getElementById(
+        "usuario"
+    ).value;
+
 
 
     if(
@@ -202,6 +204,7 @@ function calcular(){
 
         return;
     }
+
 
 
     let gravedad = 9.8;
@@ -541,11 +544,23 @@ ${energiaTotal.toFixed(2)} J
 🔥 Calorías aproximadas:
 ${calorias.toFixed(2)}
 
+<div class="caja-recomendaciones">
+
+    <h3>
+
+        💡 Recomendaciones
+
+    </h3>
+
+    ${recomendacionesHTML}
+
+</div>
+
 <div class="panel-energia">
 
     <h3>
 
-        ⚡ Interpretación energética
+        📊 Indicadores complementarios
 
     </h3>
 
@@ -567,43 +582,13 @@ ${calorias.toFixed(2)}
 
     <br><br>
 
-    🍎 Equivale aproximadamente a:
+    🍎 Equivalencia calórica:
 
     ${equivalencia}
 
 </div>
 
-<div class="caja-recomendaciones">
-
-    <h3>
-
-        💡 Recomendaciones
-
-    </h3>
-
-    ${recomendacionesHTML}
-
-</div>
-
 `;
-
-
-
-    if(ultimoPunto){
-
-        document.getElementById(
-            "panelStreetView"
-        ).style.display = "block";
-
-
-
-        document.getElementById(
-            "streetFrame"
-        ).src =
-
-        `https://maps.google.com/maps?q=${ultimoPunto[0]},${ultimoPunto[1]}&output=embed`;
-
-    }
 
 }
 
@@ -616,8 +601,6 @@ function limpiarRuta(){
     puntos = [];
 
     distanciaTotal = 0;
-
-    ultimoPunto = null;
 
     document.getElementById(
         "distancia"
@@ -636,12 +619,6 @@ function limpiarRuta(){
     });
 
     marcadores = [];
-
-
-    document.getElementById(
-        "panelStreetView"
-    ).style.display = "none";
-
 }
 
 
@@ -756,6 +733,8 @@ window.addEventListener(
     }
 );
 
+
+
 btnInstalar.addEventListener(
     "click",
 
@@ -766,9 +745,7 @@ btnInstalar.addEventListener(
             deferredPrompt.prompt();
 
             const {
-
                 outcome
-
             } = await deferredPrompt.userChoice;
 
 

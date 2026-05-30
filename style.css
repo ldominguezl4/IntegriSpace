@@ -263,7 +263,7 @@ select{
 
 
 
-/* INFO */
+/* INFORMACION */
 
 .info-velocidad{
 
@@ -410,11 +410,11 @@ select{
 
 
 
-/* PANEL ENERGETICO */
+/* INDICADORES COMPLEMENTARIOS */
 
 .panel-energia{
 
-    margin-top: 20px;
+    margin-top: 25px;
 
     padding: 20px;
 
@@ -422,9 +422,16 @@ select{
 
     background: #ecfeff;
 
-    border-left: 6px solid #0891b2;
+    border: 2px solid #a5f3fc;
 }
 
+
+.panel-energia h3{
+
+    color: #0f766e;
+
+    margin-bottom: 10px;
+}
 
 
 .esfuerzo-bajo{
@@ -435,14 +442,12 @@ select{
 }
 
 
-
 .esfuerzo-medio{
 
     color: #ca8a04;
 
     font-weight: bold;
 }
-
 
 
 .esfuerzo-alto{
@@ -454,29 +459,7 @@ select{
 
 
 
-/* STREET VIEW */
-
-#panelStreetView{
-
-    margin-top: 25px;
-
-    padding-top: 20px;
-
-    border-top: 2px solid #e2e8f0;
-}
-
-
-
-#panelStreetView h3{
-
-    color: #1e3a8a;
-
-    margin-bottom: 10px;
-}
-
-
-
-/* ACCESIBILIDAD EXTRA */
+/* ACCESIBILIDAD */
 
 .alto-contraste{
 
@@ -495,6 +478,17 @@ select{
 }
 
 
+.alto-contraste input,
+.alto-contraste select{
+
+    background: #222 !important;
+
+    color: white !important;
+
+    border-color: #666 !important;
+}
+
+
 .letras-grandes{
 
     font-size: 120%;
@@ -506,4 +500,39 @@ select{
     padding: 20px !important;
 
     font-size: 18px;
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width: 1100px){
+
+    .panel-recomendaciones{
+
+        width: 100%;
+
+        margin-top: 20px;
+    }
+
+}
+
+
+@media(max-width: 768px){
+
+    .titulo h1{
+
+        font-size: 38px;
+    }
+
+    .logo-ucv img{
+
+        width: 300px;
+    }
+
+    .botones{
+
+        flex-direction: column;
+    }
+
 }
