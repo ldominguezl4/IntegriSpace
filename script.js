@@ -136,6 +136,12 @@ function calcular(){
 
 
 
+    document.getElementById(
+        "panelIndicadores"
+    ).style.display = "block";
+
+
+
     let masa =
 
     parseFloat(
@@ -484,42 +490,6 @@ function calcular(){
 
 
 
-    /* SEGUN ESFUERZO */
-
-    if(esfuerzo === "Alto"){
-
-        recomendaciones.push(
-            "🔥 El recorrido requiere un esfuerzo considerable."
-        );
-
-        recomendaciones.push(
-            "💧 Se recomienda consumir al menos 750 ml de agua."
-        );
-
-    }
-
-    else if(esfuerzo === "Moderado"){
-
-        recomendaciones.push(
-            "⚡ El recorrido presenta un esfuerzo moderado."
-        );
-
-        recomendaciones.push(
-            "💧 Se recomienda consumir al menos 500 ml de agua."
-        );
-
-    }
-
-    else{
-
-        recomendaciones.push(
-            "✅ El recorrido representa un esfuerzo bajo."
-        );
-
-    }
-
-
-
     let recomendacionesHTML = "";
 
 
@@ -535,6 +505,8 @@ function calcular(){
     });
 
 
+
+    /* RESULTADOS */
 
     document.getElementById(
         "resultado"
@@ -579,32 +551,37 @@ ${calorias.toFixed(2)}
 
 </div>
 
-<div class="panel-energia">
+`;
 
-    <h3>
-        📊 Indicadores complementarios
-    </h3>
 
-    <br>
 
-    📊 Nivel de esfuerzo:
+    /* INDICADORES COMPLEMENTARIOS
+       PANEL TOTALMENTE INDEPENDIENTE */
 
-    <span class="${claseEsfuerzo}">
-        ${esfuerzo}
-    </span>
+    document.getElementById(
+        "indicadores"
+    ).innerHTML =
 
-    <br><br>
+`
+📊 Nivel de esfuerzo:
 
-    💧 Agua recomendada:
-    ${agua}
+<span class="${claseEsfuerzo}">
 
-    <br><br>
+    ${esfuerzo}
 
-    🍎 Equivalencia calórica:
-    ${equivalencia}
+</span>
 
-</div>
+<br><br>
 
+💧 Agua recomendada:
+
+${agua}
+
+<br><br>
+
+🍎 Equivalencia calórica:
+
+${equivalencia}
 `;
 
 }
