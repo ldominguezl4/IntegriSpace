@@ -16,6 +16,51 @@ let puntos = [];
 let linea = null;
 let distanciaTotal = 0;
 let marcadores = [];
+let ultimoPunto = null;
+
+
+
+/* CAMBIO MODO DISTANCIA */
+
+function cambiarModoDistancia(){
+
+    let modo =
+
+    document.getElementById(
+        "modoDistancia"
+    ).value;
+
+
+
+    if(modo === "manual"){
+
+        document.getElementById(
+            "distanciaMapa"
+        ).style.display = "none";
+
+
+
+        document.getElementById(
+            "distanciaManualContainer"
+        ).style.display = "block";
+
+    }
+
+    else{
+
+        document.getElementById(
+            "distanciaMapa"
+        ).style.display = "block";
+
+
+
+        document.getElementById(
+            "distanciaManualContainer"
+        ).style.display = "none";
+
+    }
+
+}
 
 
 
@@ -27,6 +72,8 @@ map.on('click', function(e){
     [e.latlng.lat, e.latlng.lng];
 
     puntos.push(nuevoPunto);
+
+    ultimoPunto = nuevoPunto;
 
 
     let marcador =
@@ -91,10 +138,49 @@ function calcular(){
         document.getElementById("peso").value
     );
 
-    let distancia =
-    parseFloat(
-        document.getElementById("distancia").value
-    );
+
+
+    let modo =
+
+    document.getElementById(
+        "modoDistancia"
+    ).value;
+
+
+
+    let distancia;
+
+
+
+    if(modo === "manual"){
+
+        distancia =
+
+        parseFloat(
+
+            document.getElementById(
+                "distanciaManual"
+            ).value
+
+        );
+
+    }
+
+    else{
+
+        distancia =
+
+        parseFloat(
+
+            document.getElementById(
+                "distancia"
+            ).value
+
+        );
+
+    }
+
+
 
     let pendiente =
     parseFloat(
@@ -126,8 +212,6 @@ function calcular(){
 
 
 
-    /* TIPO DE USUARIO */
-
     if(usuario == 1){
 
         factorUsuario = 1;
@@ -153,8 +237,6 @@ function calcular(){
     }
 
 
-
-    /* VELOCIDAD */
 
     if(pendiente < 0){
 
@@ -182,8 +264,6 @@ function calcular(){
     }
 
 
-
-    /* FORMULAS */
 
     let altura =
     distancia *
@@ -224,13 +304,57 @@ function calcular(){
 
 
 
-    /* RECOMENDACIONES */
+    let esfuerzo;
+    let claseEsfuerzo;
+    let agua;
+    let equivalencia;
+
+
+
+    if(calorias < 100){
+
+        esfuerzo = "Bajo";
+
+        claseEsfuerzo =
+        "esfuerzo-bajo";
+
+        agua = "250 ml";
+
+        equivalencia =
+        "🍌 1 plátano";
+    }
+
+    else if(calorias < 300){
+
+        esfuerzo = "Moderado";
+
+        claseEsfuerzo =
+        "esfuerzo-medio";
+
+        agua = "500 ml";
+
+        equivalencia =
+        "🍌 2 plátanos o 1 yogur";
+    }
+
+    else{
+
+        esfuerzo = "Alto";
+
+        claseEsfuerzo =
+        "esfuerzo-alto";
+
+        agua = "750 ml";
+
+        equivalencia =
+        "🥪 1 sándwich pequeño";
+    }
+
+
 
     let recomendaciones = [];
 
-
-
-    /* SEGUN PENDIENTE */
+        /* SEGUN PENDIENTE */
 
     if(pendiente > 10){
 
@@ -239,12 +363,13 @@ function calcular(){
         );
 
         recomendaciones.push(
-            "💧 Mantener hidratación constante."
+            "⚠️ Reducir velocidad durante el recorrido."
         );
 
         recomendaciones.push(
-            "⚠️ Reducir velocidad durante el recorrido."
+            "💧 Mantener hidratación constante."
         );
+
     }
 
     else if(pendiente > 0){
@@ -256,6 +381,7 @@ function calcular(){
         recomendaciones.push(
             "🚶 Mantener un ritmo estable."
         );
+
     }
 
     else if(pendiente < 0){
@@ -271,6 +397,7 @@ function calcular(){
         recomendaciones.push(
             "👟 Utilizar calzado adecuado."
         );
+
     }
 
     else{
@@ -282,6 +409,7 @@ function calcular(){
         recomendaciones.push(
             "🚶 Adecuada para desplazamiento cotidiano."
         );
+
     }
 
 
@@ -297,6 +425,7 @@ function calcular(){
         recomendaciones.push(
             "💧 Llevar agua para mantenerse hidratado."
         );
+
     }
 
 
@@ -310,6 +439,7 @@ function calcular(){
         recomendaciones.push(
             "🦽 Mantener desplazamiento moderado."
         );
+
     }
 
 
@@ -319,11 +449,46 @@ function calcular(){
         recomendaciones.push(
             "✅ Mantener ritmo de caminata seguro."
         );
+
     }
 
 
 
-    /* CREAR HTML */
+    /* SEGUN ESFUERZO */
+
+    if(esfuerzo === "Alto"){
+
+        recomendaciones.push(
+            "🔥 El recorrido requiere un esfuerzo considerable."
+        );
+
+        recomendaciones.push(
+            "💧 Se recomienda consumir al menos 750 ml de agua."
+        );
+
+    }
+
+    else if(esfuerzo === "Moderado"){
+
+        recomendaciones.push(
+            "⚡ El recorrido presenta un esfuerzo moderado."
+        );
+
+        recomendaciones.push(
+            "💧 Se recomienda consumir al menos 500 ml de agua."
+        );
+
+    }
+
+    else{
+
+        recomendaciones.push(
+            "✅ El recorrido representa un esfuerzo bajo."
+        );
+
+    }
+
+
 
     let recomendacionesHTML = "";
 
@@ -342,8 +507,6 @@ function calcular(){
     });
 
 
-
-    /* MOSTRAR RESULTADOS */
 
     document.getElementById(
         "resultado"
@@ -378,10 +541,44 @@ ${energiaTotal.toFixed(2)} J
 🔥 Calorías aproximadas:
 ${calorias.toFixed(2)}
 
+<div class="panel-energia">
+
+    <h3>
+
+        ⚡ Interpretación energética
+
+    </h3>
+
+    <br>
+
+    📊 Nivel de esfuerzo:
+
+    <span class="${claseEsfuerzo}">
+
+        ${esfuerzo}
+
+    </span>
+
+    <br><br>
+
+    💧 Agua recomendada:
+
+    ${agua}
+
+    <br><br>
+
+    🍎 Equivale aproximadamente a:
+
+    ${equivalencia}
+
+</div>
+
 <div class="caja-recomendaciones">
 
     <h3>
+
         💡 Recomendaciones
+
     </h3>
 
     ${recomendacionesHTML}
@@ -389,6 +586,24 @@ ${calorias.toFixed(2)}
 </div>
 
 `;
+
+
+
+    if(ultimoPunto){
+
+        document.getElementById(
+            "panelStreetView"
+        ).style.display = "block";
+
+
+
+        document.getElementById(
+            "streetFrame"
+        ).src =
+
+        `https://maps.google.com/maps?q=${ultimoPunto[0]},${ultimoPunto[1]}&output=embed`;
+
+    }
 
 }
 
@@ -401,6 +616,8 @@ function limpiarRuta(){
     puntos = [];
 
     distanciaTotal = 0;
+
+    ultimoPunto = null;
 
     document.getElementById(
         "distancia"
@@ -419,6 +636,12 @@ function limpiarRuta(){
     });
 
     marcadores = [];
+
+
+    document.getElementById(
+        "panelStreetView"
+    ).style.display = "none";
+
 }
 
 
@@ -450,6 +673,7 @@ function mostrarMenu(){
 
         menu.style.display = "flex";
     }
+
 }
 
 
@@ -461,6 +685,7 @@ function altoContraste(){
     document.body.classList.toggle(
         "alto-contraste"
     );
+
 }
 
 
@@ -470,6 +695,7 @@ function letrasGrandes(){
     document.body.classList.toggle(
         "letras-grandes"
     );
+
 }
 
 
@@ -479,6 +705,7 @@ function botonesGrandes(){
     document.body.classList.toggle(
         "botones-grandes"
     );
+
 }
 
 
@@ -528,8 +755,6 @@ window.addEventListener(
             "block";
     }
 );
-
-
 
 btnInstalar.addEventListener(
     "click",
