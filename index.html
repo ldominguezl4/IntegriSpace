@@ -10,19 +10,13 @@
 
     <title>IntegriSpace</title>
 
-    <!-- PWA -->
-
     <link
         rel="manifest"
         href="manifest.json"
     >
 
-    <!-- CSS -->
-
     <link rel="stylesheet"
         href="style.css">
-
-    <!-- GOOGLE FONTS -->
 
     <link rel="preconnect"
         href="https://fonts.googleapis.com">
@@ -34,15 +28,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
         rel="stylesheet">
 
-    <!-- LEAFLET -->
-
     <link rel="stylesheet"
         href="https://unpkg.com/leaflet/dist/leaflet.css">
 
 </head>
 
 <body>
-
 
     <!-- LOGO -->
 
@@ -57,7 +48,7 @@
 
 
 
-    <!-- BOTON ACCESIBILIDAD -->
+    <!-- ACCESIBILIDAD -->
 
     <div class="fab-accesibilidad">
 
@@ -66,7 +57,6 @@
             ♿
 
         </button>
-
 
         <div
             class="menu-accesibilidad"
@@ -97,7 +87,7 @@
 
 
 
-    <!-- CONTENEDOR PRINCIPAL -->
+    <!-- CONTENEDOR -->
 
     <div class="contenedor-principal">
 
@@ -106,9 +96,6 @@
 
         <div class="contenedor">
 
-
-            <!-- TITULO -->
-
             <div class="titulo">
 
                 <h1>
@@ -116,27 +103,26 @@
                 </h1>
 
                 <p>
-                    Evaluación inteligente
-                    de rutas accesibles
+                    Prototipo de aplicación inteligente
+                    para la evaluación de rutas accesibles
                 </p>
 
             </div>
 
 
 
-            <!-- CARD -->
-
             <div class="card">
 
-
                 <h3>
+
                     📍 Seleccione varios puntos
+
                 </h3>
 
                 <p class="texto-ayuda">
 
-                    Haga clic sobre el mapa
-                    para construir la ruta.
+                    Puede construir una ruta en el mapa
+                    o ingresar una distancia manualmente.
 
                 </p>
 
@@ -161,24 +147,84 @@
 
 
 
-                <!-- DISTANCIA -->
+                <!-- MODO -->
 
                 <label>
-                    Distancia total (m)
+
+                    Método de cálculo
+
                 </label>
 
-                <input
-                    type="number"
-                    id="distancia"
-                    readonly
+                <select
+                    id="modoDistancia"
+                    onchange="cambiarModoDistancia()"
                 >
+
+                    <option value="mapa">
+
+                        🗺️ Seleccionar ruta en mapa
+
+                    </option>
+
+                    <option value="manual">
+
+                        ✍️ Ingresar distancia manualmente
+
+                    </option>
+
+                </select>
+
+
+
+                <!-- DISTANCIA MAPA -->
+
+                <div id="distanciaMapa">
+
+                    <label>
+
+                        Distancia total (m)
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="distancia"
+                        readonly
+                    >
+
+                </div>
+
+
+
+                <!-- DISTANCIA MANUAL -->
+
+                <div
+                    id="distanciaManualContainer"
+                    style="display:none;"
+                >
+
+                    <label>
+
+                        Distancia manual (m)
+
+                    </label>
+
+                    <input
+                        type="number"
+                        id="distanciaManual"
+                        placeholder="Ejemplo: 500"
+                    >
+
+                </div>
 
 
 
                 <!-- TERRENO -->
 
                 <label>
+
                     Tipo de terreno
+
                 </label>
 
                 <select id="terreno">
@@ -220,7 +266,9 @@
                 <!-- PESO -->
 
                 <label>
+
                     Peso del usuario (kg)
+
                 </label>
 
                 <input
@@ -235,9 +283,9 @@
 
                 <div class="info-velocidad">
 
-                    🚶 La velocidad será ajustada
+                    🚶 La velocidad se ajusta
                     automáticamente según el
-                    terreno y tipo de usuario.
+                    terreno y el tipo de usuario.
 
                 </div>
 
@@ -246,7 +294,9 @@
                 <!-- USUARIO -->
 
                 <label>
+
                     Tipo de usuario
+
                 </label>
 
                 <select id="usuario">
@@ -286,7 +336,6 @@
 
                     </button>
 
-
                     <button
                         class="btn-limpiar"
                         onclick="limpiar()"
@@ -307,7 +356,7 @@
                     <button
                         class="btn-descarga"
                         id="btnInstalar"
-                        style="display: none;"
+                        style="display:none;"
                     >
 
                         📱 Instalar App
@@ -322,19 +371,49 @@
 
 
 
-        <!-- RESULTADOS -->
+        <!-- PANEL RESULTADOS -->
 
         <div
             class="panel-recomendaciones"
             id="panelRecomendaciones"
-            style="display: none;"
+            style="display:none;"
         >
 
             <h2>
+
                 📊 Resultados de la ruta
+
             </h2>
 
             <div id="resultado"></div>
+
+
+
+            <!-- STREET VIEW -->
+
+            <div
+                id="panelStreetView"
+                style="display:none;"
+            >
+
+                <h3>
+
+                    👁 Vista del entorno
+
+                </h3>
+
+                <iframe
+                    id="streetFrame"
+                    width="100%"
+                    height="300"
+                    style="
+                        border:none;
+                        border-radius:15px;
+                        margin-top:10px;
+                    "
+                ></iframe>
+
+            </div>
 
         </div>
 
@@ -342,11 +421,7 @@
 
 
 
-    <!-- LEAFLET -->
-
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-    <!-- SCRIPT -->
 
     <script src="script.js"></script>
 
