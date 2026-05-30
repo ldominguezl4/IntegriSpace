@@ -34,6 +34,8 @@
 
 <body>
 
+    <!-- LOGO -->
+
     <div class="logo-ucv">
 
         <img
@@ -43,6 +45,8 @@
     </div>
 
 
+
+    <!-- ACCESIBILIDAD -->
 
     <div class="fab-accesibilidad">
 
@@ -74,8 +78,12 @@
 
 
 
+    <!-- CONTENEDOR PRINCIPAL -->
+
     <div class="contenedor-principal">
 
+
+        <!-- PANEL IZQUIERDO -->
 
         <div class="contenedor">
 
@@ -109,6 +117,8 @@
 
 
 
+                <!-- MAPA -->
+
                 <div class="contenedor-mapa">
 
                     <div id="map"></div>
@@ -124,6 +134,8 @@
                 </div>
 
 
+
+                <!-- MODO DISTANCIA -->
 
                 <label>
                     Método de cálculo
@@ -145,6 +157,8 @@
 
 
 
+                <!-- DISTANCIA MAPA -->
+
                 <div id="distanciaMapa">
 
                     <label>
@@ -159,6 +173,8 @@
                 </div>
 
 
+
+                <!-- DISTANCIA MANUAL -->
 
                 <div
                     id="distanciaManualContainer"
@@ -176,6 +192,8 @@
                 </div>
 
 
+
+                <!-- TERRENO -->
 
                 <label>
                     Tipo de terreno
@@ -207,6 +225,8 @@
 
 
 
+                <!-- PESO -->
+
                 <label>
                     Peso del usuario (kg)
                 </label>
@@ -218,6 +238,8 @@
 
 
 
+                <!-- INFO -->
+
                 <div class="info-velocidad">
 
                     🚶 La velocidad se ajusta
@@ -227,6 +249,8 @@
                 </div>
 
 
+
+                <!-- USUARIO -->
 
                 <label>
                     Tipo de usuario
@@ -250,6 +274,8 @@
 
 
 
+                <!-- BOTONES -->
+
                 <div class="botones">
 
                     <button
@@ -271,6 +297,8 @@
                 </div>
 
 
+
+                <!-- INSTALAR -->
 
                 <div class="descargas">
 
@@ -299,14 +327,29 @@
             style="display:none;">
 
             <h2>
-
                 📊 Resultados de la ruta
-
             </h2>
 
             <div id="resultado"></div>
 
         </div>
+
+    </div>
+
+
+
+    <!-- PANEL INDEPENDIENTE -->
+
+    <div
+        class="panel-energia"
+        id="panelIndicadores"
+        style="display:none; max-width:1100px; margin:30px auto;">
+
+        <h2>
+            📊 Indicadores complementarios
+        </h2>
+
+        <div id="indicadores"></div>
 
     </div>
 
@@ -319,4 +362,3 @@
 </body>
 
 </html>
-
